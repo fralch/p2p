@@ -1,0 +1,30 @@
+{
+  "name": "p2p",
+  "version": "1.0.0",
+  "description": "Aprendiendo Libp2p",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fralch/p2p.git"
+  },
+  "keywords": [
+    "p2p",
+    "javascript",
+    "libp2p"
+  ],
+  "author": "Fralch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fralch/p2p/issues"
+  },
+  "homepage": "https://github.com/fralch/p2p#readme",
+  "dependencies": {
+    "@chainsafe/libp2p-noise": "^10.2.0",
+    "@libp2p/tcp": "^6.0.8",
+    "libp2p": "^0.41.0"
+    }
+}
