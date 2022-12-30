@@ -24,7 +24,8 @@
   "homepage": "https://github.com/fralch/p2p#readme",
   "dependencies": {
     "@chainsafe/libp2p-noise": "^10.2.0",
+    "@libp2p/peer-id": "^1.1.18",
     "@libp2p/tcp": "^6.0.8",
     "libp2p": "^0.41.0"
-    }
+  }
 }

@@ -10,10 +10,34 @@ const node = await createLibp2p({
 await node.start(); 
 console.log('node started')
 
-if (node) {
-    console.log(node.peerId.toB58String())
-    // const idnode = node.peerId.toB58String();
-    // console.log(idnode)
-  } else {
-    console.log('La variable node es null o undefined')
-  } 
+
+async function receiveMessage() {
+  // Utilizamos el manejador de libp2p para escuchar por mensajes con el protocolo /echo/1.0.0
+  for await (const { stream } of node.handle('/chat/1.0.0')) {
+    // Recibimos el mensaje y lo mostramos en la consola
+    for await (const data of stream.source) {
+      console.log(data.toString())
+      // Enviamos el mensaje de vuelta al remitente
+      await stream.sink(Buffer.from('recibido'))
+    }
+  }
+}   
+
+async function sendMessage(peerId, message) {
+    // Usamos el método node.dial para conectarnos al peer y enviar el mensaje
+    node.dial(peerId, '/echo/1.0.0', (error, conn) => {
+      if (error) {
+        console.error('Error al conectar con el peer:', error)
+        return
+      }
+  
+      // Creamos el flujo de datos y enviamos el mensaje
+      const stream = conn.newStream()
+      stream.write(Buffer.from(message))
+      stream.end()
+    })
+  }
+
+
+
+console.log(node.peerId); 
