@@ -24,8 +24,13 @@
   "homepage": "https://github.com/fralch/p2p#readme",
   "dependencies": {
     "@chainsafe/libp2p-noise": "^10.2.0",
+    "@libp2p/mplex": "^7.1.1",
     "@libp2p/peer-id": "^1.1.18",
     "@libp2p/tcp": "^6.0.8",
-    "libp2p": "^0.41.0"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "libp2p": "^0.41.0",
+    "multiaddr": "^10.0.1",
+    "node-fetch": "^3.3.0"
   }
 }
